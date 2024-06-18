@@ -398,9 +398,9 @@ class JuiceboxMQTTHandler:
             elif part[0] == "u":
                 message["loop_counter"] = part.split("u")[1]
             elif part[0] == "T":
-                message["temperature"] = round(float(part.split("T")[1]) * 1.8 + 32, 2)
+                message["temperature"] = round(float(part.split("T")[1]), 2)
             elif part[0] == "V":
-                message["voltage"] = round(float(part.split("V")[1]) * 0.1, 2)
+                message["voltage"] = round(float(part.split("V")[1]), 2)
             else:
                 message["unknown_" + part[0]] = part[1:]
         message["power"] = round(
